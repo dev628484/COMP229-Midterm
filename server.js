@@ -38,11 +38,11 @@ app.get('/api/games', (req, res) => {
 // Description: Filter games by genre
 // Task: Implement logic to return games matching the specified genre
 app.get('/api/games/filter', (req, res) => {
-  // TODO: Add logic to filter games by genre
+  const genre = req.query.genre;
+  
+  const filteredGames = games.filter(game => game.genre === genre);
 
-
-  // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  res.status(200).json(filteredGames);
 });
 
 // GET /api/games/:id
