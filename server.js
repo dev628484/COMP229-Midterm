@@ -1,32 +1,3 @@
-/**
- * Midterm API Project - COMP229
- *
- * Challenge: Implement the API logic for managing a collection of video games!
- *
- * Here's the setup:
- * A server is already running on port 3000 with an array of game objects.
- * Your mission is to implement the missing logic for each of the endpoints below.
- *
- * Endpoints:
- * 1. GET /api/games       - Retrieve the full list of games.
- * 2. GET /api/games/filter?genre=[genre name] - Retrieve games by genre match.
- * 3. GET /api/games/:id   - Retrieve a game by its index.
- * 4. POST /api/games      - Add a new game to the library.
- * 5. PUT /api/games/:id   - Update a game by its index.
- * 6. DELETE /api/games/:id - Remove a game from the library by its index.
- *
- * The array of games is already defined for you, but you need to bring the logic
- * to life. Test your work using tools like Postman, Thunder Client, or Insomnia.
- *
- * Submission Requirements:
- * 1. Screenshots: Provide one per endpoint, showing the request details and a
- *    successful response with the correct status code.
- * 2. Code Submission: Zip your project, share the repo link, and ensure your
- *    personalized games are present.
- *
- * Good luck, and may your code be bug-free!
- */
-
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -41,7 +12,9 @@ let games = [
   { title: 'God of War', genre: 'Action', platform: 'PlayStation 4', year: 2018, developer: 'Santa Monica Studio' },
   { title: 'Hollow Knight', genre: 'Metroidvania', platform: 'PC', year: 2017, developer: 'Team Cherry' },
   { title: 'Forza Horizon 5', genre: 'Racing', platform: 'Xbox Series X|S', year: 2021, developer: 'Playground Games' },
-  { title: 'Stardew Valley', genre: 'Simulation', platform: 'Nintendo Switch', year: 2016, developer: 'ConcernedApe' }
+  { title: 'Stardew Valley', genre: 'Simulation', platform: 'Nintendo Switch', year: 2016, developer: 'ConcernedApe' },
+  { title: 'Batman: Arkham Asylum', genre:'Action', platform: 'Xbox 360', year: '2009', developer: 'Rocksteady Studios' },
+  { title: 'Metal Gear Solid 3: Snake Eater', genre:'Stealth', platform: 'Playstation 2', year: '2004', developer: 'Konami' }
 ];
 
 // Set the port for the server
@@ -58,16 +31,7 @@ app.get('/', (req, res) => {
 // Description: Get all games
 // Task: Implement logic to return the full list of games
 app.get('/api/games', (req, res) => {
-  // TODO: Add logic to return all games
-
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
-
-  // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  res.status(200).json(games);
 });
 
 // GET /api/games/filter?genre=[genre name]
@@ -75,12 +39,7 @@ app.get('/api/games', (req, res) => {
 // Task: Implement logic to return games matching the specified genre
 app.get('/api/games/filter', (req, res) => {
   // TODO: Add logic to filter games by genre
-  
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+
 
   // Don't forget to remove the line below:
   res.status(501).send('Not Implemented');
@@ -92,11 +51,7 @@ app.get('/api/games/filter', (req, res) => {
 app.get('/api/games/:id', (req, res) => {
   // TODO: Add logic to return a game by its index (ID)
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+
 
   // Don't forget to remove the line below:
   res.status(501).send('Not Implemented');
@@ -108,11 +63,7 @@ app.get('/api/games/:id', (req, res) => {
 app.post('/api/games', (req, res) => {
   // TODO: Add logic to add a new game to the array
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+
 
   // Don't forget to remove the line below:
   res.status(501).send('Not Implemented');
@@ -124,11 +75,7 @@ app.post('/api/games', (req, res) => {
 app.put('/api/games/:id', (req, res) => {
   // TODO: Add logic to update a game by its index
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+
 
   // Don't forget to remove the line below:
   res.status(501).send('Not Implemented');
@@ -140,11 +87,7 @@ app.put('/api/games/:id', (req, res) => {
 app.delete('/api/games/:id', (req, res) => {
   // TODO: Add logic to remove a game by its index
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+
 
   // Don't forget to remove the line below:
   res.status(501).send('Not Implemented');
