@@ -28,69 +28,47 @@ app.get('/', (req, res) => {
 // API Endpoints
 
 // GET /api/games
-// Description: Get all games
-// Task: Implement logic to return the full list of games
 app.get('/api/games', (req, res) => {
   res.status(200).json(games);
 });
 
 // GET /api/games/filter?genre=[genre name]
-// Description: Filter games by genre
-// Task: Implement logic to return games matching the specified genre
 app.get('/api/games/filter', (req, res) => {
   const genre = req.query.genre;
-  
   const filteredGames = games.filter(game => game.genre === genre);
 
   res.status(200).json(filteredGames);
 });
 
 // GET /api/games/:id
-// Description: Get a specific game by ID
-// Task: Implement logic to return a game by its index (ID)
 app.get('/api/games/:id', (req, res) => {
-  // TODO: Add logic to return a game by its index (ID)
-  
+  const id = parseInt(req.params.id);
 
-
-  // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  res.status(200).json(games[id]);
 });
 
 // POST /api/games
-// Description: Add a new game
-// Task: Implement logic to add a new game to the array
 app.post('/api/games', (req, res) => {
-  // TODO: Add logic to add a new game to the array
-  
+  const newGame = req.body;
+  games.push(newGame);
 
-
-  // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  res.status(200).json(newGame);
 });
 
 // PUT /api/games/:id
-// Description: Update a game by ID
-// Task: Implement logic to update a game by its index (ID)
 app.put('/api/games/:id', (req, res) => {
-  // TODO: Add logic to update a game by its index
-  
+  const id = parseInt(req.params.id);
+  games[id] = req.body;
 
-
-  // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  res.status(200).json(games[id]);
 });
 
 // DELETE /api/games/:id
-// Description: Remove a game by ID
-// Task: Implement logic to remove a game by its index (ID)
 app.delete('/api/games/:id', (req, res) => {
-  // TODO: Add logic to remove a game by its index
-  
+  const id = parseInt(req.params.id);
+  const deletedGame = games.splice(id, 1);
 
-
-  // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  res.status(200).json(deletedGame);
 });
 
 // Start the server
